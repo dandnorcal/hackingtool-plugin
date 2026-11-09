@@ -12,7 +12,7 @@ Filters are ANDed:
   --capability K    key in capabilities that must be true
                     (runnable_by_claude, interactive, requires_sudo, ...)
   --no-capability K key must be false/absent
-  --os OS           supported_os must include this (linux, macos)
+  --os OS           supported_os must include this (linux, macos, windows)
   --installed-only  hide archived tools
   --limit N         cap results (default 50)
 
@@ -86,7 +86,8 @@ def main():
     ap.add_argument("--tag", default=None)
     ap.add_argument("--capability", action="append", default=[])
     ap.add_argument("--no-capability", action="append", default=[], dest="no_capability")
-    ap.add_argument("--os", dest="os_filter", default=None, choices=["linux", "macos"])
+    ap.add_argument("--os", dest="os_filter", default=None,
+                    choices=["linux", "macos", "windows"])
     ap.add_argument("--installed-only", action="store_true")
     ap.add_argument("--limit", type=int, default=50)
     args = ap.parse_args()

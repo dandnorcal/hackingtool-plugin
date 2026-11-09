@@ -220,9 +220,9 @@ def _parse_tool_file(path: Path) -> list[dict]:
         if not isinstance(tags, list):
             tags = []
 
-        supported = attrs.get("SUPPORTED_OS") or ["linux", "macos"]
+        supported = attrs.get("SUPPORTED_OS") or ["linux", "macos", "windows"]
         if not isinstance(supported, list):
-            supported = ["linux", "macos"]
+            supported = ["linux", "macos", "windows"]
 
         out.append({
             "id": f"{category}.{node.name}",
